@@ -9,7 +9,7 @@ loop do
 	r = Random.new
 	duration = r.rand(2..30)
 	puts ARGV.join(" ")
-	`ffmpeg -y -t #{duration} -ss 00:#{played / 60 }:#{played % 60} -i '#{ARGV.join(" ")}' segment.mp3`
+	`ffmpeg -y -t #{duration} -ss 00:#{played / 60 }:#{played % 60} -i '#{ARGV[0]}' segment.mp3`
 	`cvlc --play-and-exit segment.mp3`
 	played += duration
 	puts "Continue? (y/n)"
